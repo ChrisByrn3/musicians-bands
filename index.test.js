@@ -17,11 +17,14 @@ describe('Band and Musician Models', () => {
             name: 'Shed 7', genre: 'indie'
         })
         expect(band1.name).toBe('shed 7');
-        expect(band1.genre).toBe('indie')
+        expect(band1.genre).toBe('indie');
     })
 
     test('can create a Musician', async () => {
-        // TODO - test creating a musician
-        expect('NO TEST').toBe('EXPECTED VALUE HERE');
+        const muso1 = await Musician.create({
+            name: 'Tim Minchin', instrument: 'piano'
+        })
+        expect(muso1.name).toBe('Tim Minchin');
+        expect(muso1.instrument).toBe('piano');
     })
 })
