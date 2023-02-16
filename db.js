@@ -1,12 +1,13 @@
-const path = require('path');
-const { Sequelize, Model } = require('sequelize');
-const sequelize = new Sequelize ({
-    dilect: "sqlite",
-    storage: path.join(__dirname, "db.sqlite") 
-})
+const path = require("path");
+const { Sequelize, Model } = require("sequelize");
 // TODO - create the new sequelize connection
-
+// connecting to a database
+const sequelize = new Sequelize({
+  dialect: "sqlite",
+  storage: path.join(__dirname, "db.sqlite"),
+  //   logging: false
+});
 module.exports = {
-    sequelize,
-    Sequelize
+  sequelize,
+  Sequelize,
 };

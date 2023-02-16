@@ -16,7 +16,7 @@ describe('Band and Musician Models', () => {
         const band1 = await Band.create({
             name: 'Shed 7', genre: 'indie'
         })
-        expect(band1.name).toBe('shed 7');
+        expect(band1.name).toBe('Shed 7');
         expect(band1.genre).toBe('indie');
     })
 
