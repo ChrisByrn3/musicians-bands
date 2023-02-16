@@ -28,3 +28,30 @@ describe('Band and Musician Models', () => {
         expect(muso1.instrument).toBe('piano');
     })
 })
+
+describe('Associations', () => {
+    beforeAll(async () => {
+        // the 'sync' method will create tables based on the model class
+        // by setting 'force:true' the tables are recreated each time the 
+        // test suite is run
+        await sequelize.sync({ force: true });
+    })
+
+    test('can add musicians to band', async () => {
+        const muso1 = await Musician.create({
+            name: 'Damon Albarn', instrument: 'Vocals'
+        })
+        const muso2 = await Musician.create({
+            name: 'Alex James', instrument: 'Bass'
+        })
+        const band1 = await Band.create({
+            name: 'Blur', genre: 'Britpop'
+        })
+        await band1.addMusician(muso1);
+        await band1.addMusician(muso2);
+const bandMembers = await band1.getMusicians(); 
+//for (i in bandMembers){
+
+        expect(bandMembers).toContainEqual(muso1);}
+    )
+})
