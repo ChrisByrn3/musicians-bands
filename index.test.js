@@ -1,5 +1,6 @@
 const {sequelize} = require('./db');
-const {Band, Musician} = require('./index')
+const {Band, Musician} = require('./index');
+
 
 describe('Band and Musician Models', () => {
     /**
@@ -50,8 +51,8 @@ describe('Associations', () => {
         await band1.addMusician(muso1);
         await band1.addMusician(muso2);
 const bandMembers = await band1.getMusicians(); 
-//for (i in bandMembers){
-
-        expect(bandMembers).toContainEqual(muso1);}
+        expect(bandMembers.length).toBe(2);
+        expect(bandMembers[1].BandId).toBe(band1.id);
+    expect(bandMembers[0].name).toBe('Damon Albarn')}
     )
 })
